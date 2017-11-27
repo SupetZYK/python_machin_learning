@@ -71,3 +71,90 @@ if match:
 ### python strip()
 
 返回移除字符串头尾指定字符后重新生成的新字符串
+
+### np.split() np.hsplit() np.vsplit()
+
+
+
+```python
+split(ary, indices_or_sections, axis=0)
+#Split an array into multiple sub-arrays.
+#np.hsplit:  split(ary, indices_or_sections, axis=1) along second axis
+#np.vsplit: split(ary,indices_or_sections, axis=0) along first axis
+```
+
+```python
+>>> x = np.arange(9.0)
+>>> np.split(x, 3)
+[array([ 0.,  1.,  2.]), array([ 3.,  4.,  5.]), array([ 6.,  7.,  8.])]
+    
+>>> x = np.arange(8.0)
+>>> np.split(x, [3, 5, 6, 10])
+[array([ 0.,  1.,  2.]),
+array([ 3.,  4.]),
+array([ 5.]),
+array([ 6.,  7.]),
+array([], dtype=float64)]
+```
+
+### np.reshape()
+
+```python
+# in row order
+>>> a = np.arange(6).reshape((3, 2))
+>>> a
+array([[0, 1],
+	[2, 3],
+    [4, 5]])
+```
+
+### np.repeat()
+
+注意和tile的区别
+
+```python
+    >>> x = np.array([[1,2],[3,4]])
+    >>> np.repeat(x, 2)
+    # return flatten
+    array([1, 1, 2, 2, 3, 3, 4, 4])
+    # repeat along second axis
+    >>> np.repeat(x, 3, axis=1)
+    array([[1, 1, 1, 2, 2, 2],
+           [3, 3, 3, 4, 4, 4]]
+    # repeat along first axis
+    >>> np.repeat(x,2,0)
+    array([[1, 2],
+           [1, 2],
+           [3, 4],
+           [3, 4]])
+    >>> np.repeat(x, [1, 2], axis=0)
+    array([[1, 2],
+           [3, 4],
+           [3, 4]])
+```
+
+### np.vstack()
+
+```python
+	>>> a = np.array([1, 2, 3])
+    >>> b = np.array([2, 3, 4])
+    >>> np.vstack((a,b))
+    array([[1, 2, 3],
+           [2, 3, 4]])
+```
+
+### np.hstack()
+
+```python
+    >>> a = np.array((1,2,3))
+    >>> b = np.array((2,3,4))
+    >>> np.hstack((a,b))
+    array([1, 2, 3, 2, 3, 4])
+    >>> a = np.array([[1],[2],[3]])
+    >>> b = np.array([[2],[3],[4]])
+    >>> np.hstack((a,b))
+    array([[1, 2],
+           [2, 3],
+           [3, 4]])
+```
+
